@@ -1,0 +1,32 @@
+{
+  "name": "next-blog",
+  "version": "",
+  "description": "A blog built using next.js and Markdown + processmd",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "next build",
+    "build:content": "processmd content/**/*.md --outputDir content --preview 110 --summaryOutput content/summary.json",
+    "build:content:watch": "processmd content/**/*.md --outputDir content --preview 110 --summaryOutput content/summary.json --watch",
+    "build:export": "npm run build && npm run export",
+    "export": "next export && cp -R static/* out/"
+  },
+  "keywords": [
+    "blog",
+    "next.js",
+    "next"
+  ],
+  "devDependencies": {
+    "next": "^9.1.0",
+    "processmd": "^4.5.0",
+    "standard": "^14.3.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "react": "^16.10.2",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-dom": "^16.10.2",
+    "styled-components": "^5.0.1",
+    "styled-jsx": "^3.2.2"
+  }
+}
