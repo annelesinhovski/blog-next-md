@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'next/router'
-import styled from 'styled-components';
 import Page from '../src/components/Page'
+import styled from 'styled-components'
 import { filterPosts } from '../src/utils/content'
 
 import CONFIG from '../content/index.json'
