@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import styled from 'styled-components'
-import {Card, Col } from 'react-bootstrap'
+import {Card, Col, Badge } from 'react-bootstrap'
 
 const Cardpost = styled.div`
   margin: 15px 0;
@@ -50,6 +50,7 @@ function PagePreview(props) {
           <Card style={{ width: '20rem' }}>
             <Card.Img variant="top" src={ props.img } />
             <Card.Body>
+              <Badge variant="primary">{ props.categoria }</Badge>
               <Card.Title>{ props.title }</Card.Title>
               <Card.Text>
                 {props.preview && (

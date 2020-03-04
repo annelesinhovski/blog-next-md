@@ -38,6 +38,7 @@ function Body(props) {
           return (
             <PagePreview
               img={article.img}
+              categoria={article.categoria}
               title={article.title}
               preview={article.preview}
               date={date}

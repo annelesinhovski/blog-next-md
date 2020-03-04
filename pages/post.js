@@ -7,7 +7,7 @@ import { filterPosts } from '../src/utils/content'
 import CONFIG from '../content/index.json'
 import summaryJson from '../content/summary.json'
 
-import {Container, Button} from 'react-bootstrap'
+import {Container, Button, Badge} from 'react-bootstrap'
 
 
 const Navposts = styled.div`
@@ -30,29 +30,7 @@ function Index(props) {
   const pageJson = props.pageJson;
 
   return (
-    <div>
-      <style jsx global>{`
-        .content a {
-          color: #0365A5;
-          text-decoration: none;
-          border-bottom: 1px solid #DFDFDF;
-          transition: all 300ms ease;
-        }
-
-        a:hover, a:focus {
-          border-bottom-color: currentColor;
-        }
-
-        code {
-          background-color: #EEE;
-          line-height: 1;
-          border-radius:2px;
-          padding: 1px;
-        }
-        code:not(.hljs) {
-          border: 1px solid #DDD;
-        }
-      `}</style>
+    <>
       <Page
         siteTitle={`${CONFIG.siteTitle} - ${pageJson && pageJson.title}`}
         heroTitle={CONFIG.siteTitle}
@@ -64,7 +42,7 @@ function Index(props) {
         copyright={CONFIG.copyright}
         siteId={CONFIG.siteId}
       />
-    </div>
+    </>
   )
 }
 
@@ -96,12 +74,17 @@ function Body(props = {}) {
     window.location.href = window.location.search + next;
   }
 
+  // Mapeando a categoria da pagina exibida
+  const blogCat = blogposts.map(a => a.categoria);
+  var atualCat = blogCat[atual];
+
 
   return (
     <Container>
       <figure>
         <img src={props.img} alt={props.title} />
       </figure>
+      <Badge variant="primary">{atualCat}</Badge>
       <h1>{props.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: props.bodyHtml }}></div>
 
