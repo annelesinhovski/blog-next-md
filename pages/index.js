@@ -1,6 +1,7 @@
 import React from 'react'
 import Page from '../src/components/Page'
 import PagePreview from '../src/components/PagePreview'
+import {CarouselDestaque} from '../src/components/CarouselDestaque'
 import { formatDate } from '../src/utils/date'
 import { makeUrl, filterPosts } from '../src/utils/content'
 
@@ -31,6 +32,16 @@ function Body(props) {
   const postList = filterPosts(props.summaryJson)
   return (
     <Container>
+
+      <h1>Carousel with 3 recent posts:</h1>
+      
+      <Row>
+        <CarouselDestaque />
+      </Row>
+
+      <hr />
+      <h1>See all the posts:</h1>
+
       <Row>
         {postList.map((article, i) => {
           const href = makeUrl(article)
