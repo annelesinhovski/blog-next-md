@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import styled from 'styled-components'
-import {Container, Nav} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 
 const Herotopo = styled.div`
-  padding: 70px 0 0;
+  padding: 70px 0 50px;
   margin: 0 0 50px;
   display: block;
   width: 100%;
@@ -18,18 +18,6 @@ const Herotopo = styled.div`
 
   h4 {
     font-size: 20px;
-  }
-
-  .nav {
-    .nav-item {
-      a {
-        font-weight: bold;
-        border-bottom: 3px solid #d5d5d5;
-        &:hover {
-          border-bottom: 3px solid #007bff;
-        }
-      }
-    }
   }
 
 `;
@@ -50,30 +38,6 @@ function Hero(props) {
           <p>
             {props.subtitle}
           </p>
-          <div>
-
-            <Nav className="justify-content-center" activeKey="/home">
-              {props.topLinks && props.topLinks.length > 0 && (
-                props.topLinks.map((link, i) => {
-                  return link.href.indexOf('http') === -1 ? (
-                    
-                    <Nav.Item>
-                      <Nav.Link href={link.href} key={i}>
-                          {link.text}
-                      </Nav.Link>
-                    </Nav.Item>
-                  ) : (
-                    <Nav.Item>
-                      <Nav.Link href={link.href} key={i}>
-                          {link.text}
-                      </Nav.Link>
-                    </Nav.Item>
-                  )
-                })
-              )}
-            </Nav>
-            
-          </div>
         </div>
       </Container>
     </Herotopo>
