@@ -34,3 +34,6 @@ module.exports = {
     }, posts, paths) // aliases
   }
 }
+
+const withImages = require('next-images')
+module.exports = withImages({})
