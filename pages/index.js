@@ -2,6 +2,7 @@ import React from 'react'
 import Page from '../src/components/Page'
 import PagePreview from '../src/components/PagePreview'
 import {CarouselDestaque} from '../src/components/CarouselDestaque'
+import {FiltroCategoria} from '../src/components/FiltroCategoria'
 import { formatDate } from '../src/utils/date'
 import { makeUrl, filterPosts } from '../src/utils/content'
 
@@ -34,13 +35,13 @@ function Body(props) {
     <Container>
 
       <h1>Carousel with 3 recent posts:</h1>
-      
+
       <Row>
         <CarouselDestaque />
       </Row>
 
       <hr />
-      <h1>See all the posts:</h1>
+      <h1>See the full list of posts:</h1>
 
       <Row>
         {postList.map((article, i) => {
@@ -60,6 +61,14 @@ function Body(props) {
           )
         })}
       </Row>
+
+      <hr />
+      <h1>Or use the category filter/search field:</h1>
+
+      <Row>
+        <FiltroCategoria />
+      </Row>
+
     </Container>
   )
 }

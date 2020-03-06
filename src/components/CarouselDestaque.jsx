@@ -35,7 +35,7 @@ function CarouselDestaque() {
                 {recentPosts.map((article, i) => {
                 const href = makeUrl(article)
                     return (
-                        <Carousel.Item>
+                        <Carousel.Item key={i}>
                             <img src={article.img} alt={article.title} />
                             <Carousel.Caption>
                             <h3>{article.title}</h3>

@@ -1,5 +1,5 @@
 ---
-title: First post
+title: Exemplo de post da categoria B
 categoria: categoria b
 date: 02/08/2020
 img: https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_768/https://www.galateia.com.br/wp-content/uploads/2018/01/blog-768x384.jpg
