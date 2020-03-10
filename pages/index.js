@@ -1,15 +1,14 @@
-import React from 'react'
-import Page from '../src/components/Page'
-import PagePreview from '../src/components/PagePreview'
-import {CarouselDestaque} from '../src/components/CarouselDestaque'
-import {FiltroCategoria} from '../src/components/FiltroCategoria'
+import React, { useState } from 'react'
 import { formatDate } from '../src/utils/date'
 import { makeUrl, filterPosts } from '../src/utils/content'
-
 import CONFIG from '../content/index.json'
 import SUMMARY_JSON from '../content/summary.json'
-
 import {Container, Row} from 'react-bootstrap'
+import Page from '../src/components/Page'
+import PagePreview from '../src/components/PagePreview'
+import {BtnVerMais} from '../src/components/BtnVerMais'
+import {CarouselDestaque} from '../src/components/CarouselDestaque'
+import {FiltroCategoria} from '../src/components/FiltroCategoria'
 
 function Index(props) {
   return (
@@ -29,8 +28,15 @@ function Index(props) {
   )
 }
 
-function Body(props) {
+function Body(props, handleClick) {
   const postList = filterPosts(props.summaryJson)
+  
+  const [count, setCount] = useState(3);
+  handleClick = (event) => {
+    event.preventDefault();
+    setCount(count + 3)
+  }
+
   return (
     <Container>
 
@@ -44,7 +50,7 @@ function Body(props) {
       <h1>See the full list of posts:</h1>
 
       <Row>
-        {postList.map((article, i) => {
+        {postList.slice(0, count).map((article, i) => {
           const href = makeUrl(article)
           const date = formatDate(article.date)
           return (
@@ -61,6 +67,8 @@ function Body(props) {
           )
         })}
       </Row>
+      
+      <BtnVerMais onClick={handleClick} buttonText="Exibir mais posts" />
 
       <hr />
       <h1>Or use the category filter/search field:</h1>
